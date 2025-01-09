@@ -1,0 +1,283 @@
+@charset "utf-8";
+@import url("./reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  font-family: "Poppins", "Noto Sans KR", sans-serif;
+  font-size: var(--sm-font-size);
+  color: #fff;
+  line-height: var(--sm-line-height);
+  background-color: var(--default-blk);
+}
+.wrapper {
+  width: 100%;
+  height: auto;
+}
+/* 공통영역 */
+.con {
+  width: 1600px;
+  height: auto;
+  margin: 0 auto;
+}
+header {
+  width: 100%;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transition: background-color 0.5s;
+}
+header .con {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+/* 로고 */
+h1 {
+  width: fit-content;
+  align-self: center; /* 마진이나 패딩으로 가운데로 옮기기도 가능 */
+}
+h1 a {
+  /* 로고 색상 흰색으로 변경 */
+  filter: invert(100%);
+}
+/* 메뉴 */
+#gnb {
+  width: fit-content;
+  height: 100%;
+}
+#gnb > ul {
+  width: fit-content;
+  height: auto; /* 마우스 올리면 2차메뉴 나와야하니깐 */
+  display: flex;
+  gap: 40px;
+  line-height: 80px; /* 헤더높이랑 똑같이해서 헤더에 1차메뉴만 보이게 */
+  text-transform: capitalize; /* 첫글자 대문자 */
+  text-align: center;
+}
+#gnb > ul > li {
+  width: 150px; /*fit-content하면 글자긴애들은 아래로내려감*/
+  position: relative;
+}
+#gnb > ul > li > a {
+  display: block;
+  transition: 0.3s;
+  font-weight: 500;
+}
+#gnb > ul > li:hover > a {
+  color: var(--main-color); /* 자손으로 불러왔으니깐 2차메뉴 글자색은 안바뀜 */
+}
+/* 2차메뉴 */
+.submenu {
+  width: 100%; /* li의 100% */
+  height: 0; /*overflow-hidden 써야 숨겨짐*/
+  overflow: hidden;
+  line-height: var(--md-line-height);
+  position: absolute; /* 포지션때문에 브라우저에서 떨어져있어서 당장은 안보임_긁어보면나옴 */
+  top: 100px;
+  transition: 0.5s;
+  z-index: 1000;
+}
+.submenu > li {
+  height: fit-content;
+}
+.submenu > li > a {
+  display: block;
+  transition: 0.3s;
+}
+.submenu > li:hover > a {
+  color: var(--main-color);
+}
+#gnb:hover .submenu {
+  height: 152px;
+}
+/* submenu 뒤에 전체배경 */
+#gnb::after {
+  content: "header-background";
+  font-size: 0;
+  position: absolute; /* 0점 헤더기준_gnb기준이면 그거 시작지점부터 100vw */
+  top: 80px; /* 헤더아래부터 */
+  left: 0;
+  width: 100vw;
+  height: 0; /*마우스올리면 그때보여야해서*/
+  transition: 0.5s;
+  backdrop-filter: blur(10px); /* 배경 블러처리 △뒤에 단색이면 블러 안먹음 */
+}
+header:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid #000;
+}
+#gnb:hover::after {
+  height: 200px;
+  border-bottom: 1px solid #ddd;
+}
+/* 아이콘 */
+.icons {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.icons a {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1; /* i폰트도 폰트 */
+  transition: 0.5s;
+}
+.icons a:hover {
+  color: var(--default-blk);
+  background-color: var(--sub-color);
+  border-radius: 100%;
+}
+.icons a:last-child {
+  /* 메뉴아이콘은 pc에선 안보이고 모바일에서만 보이게 할꺼임 */
+  display: none;
+}
+/* 컨텐츠영역 */
+main,
+section {
+  width: 100%;
+  height: auto;
+}
+/* 메인비주얼 */
+.main_visual {
+  width: 100%;
+  height: 100vh;
+  position: relative; /* 스크롤다운 화살표에 포지션 주려고 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.visual_text {
+  width: 50%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 0 200px;
+}
+.visual_text h2 {
+  font-size: clamp(80px, 6vw, 100px); /* 범위제한_6vw:브라우저 6% */
+  line-height: 1.2;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+.visual_text h2 span {
+  -webkit-text-fill-color: transparent; /* 글자색 투명 */
+  -webkit-text-stroke: 0.5px #fff; /* 글자테두리 */
+}
+.visual_text p {
+  position: relative; /* 원래없다가 브라우저 로딩되면서 올라오게하려고 */
+  animation: textup 2s ease 1s 1 forwards;
+  will-change: top opacity; /* 애니메이션이나 트렌지션, 트렌스폼으로 00에 변화를 줄꺼다 ->버벅거림방지 */
+  font-weight: 300;
+  font-size: var(--md-font-size);
+  line-height: var(--md-line-height);
+  opacity: 0;
+}
+
+@keyframes textup {
+  from {
+    opacity: 0;
+    top: 50px;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}
+.visual_video {
+  width: 50%;
+  height: 100vh;
+  overflow: hidden;
+}
+.visual_video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.scroll_down {
+  position: absolute; /*부모에 flex, justi, align 다 센터줘서 가운데로 옴*/
+  bottom: 50px;
+  transition: 0.3s linear;
+  filter: drop-shadow(0px 2px 3px #000);
+}
+.scroll_down:hover {
+  bottom: 55px;
+}
+/* 두번째 섹션 */
+#sec2 {
+  overflow: hidden; /* 로켓때문에 가로스크롤 생기지 않게 */
+  position: relative; /* 로켓 위치잡게 */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+}
+.rocket {
+  position: absolute;
+  left: -200px;
+  font-size: clamp(50px, 8vw, 100px);
+  animation: rocket 4s linear 1s 1;
+  animation-play-state: paused;
+  will-change: transform;
+}
+#sec2:hover .rocket {
+  animation-play-state: running;
+}
+@keyframes rocket {
+  from {
+    transform: translate(0px) rotate(0deg); /* 현재위치(left -200px) */
+  }
+  to {
+    transform: translate(105vw) rotate(360deg);
+  }
+}
+/* 세번째 섹션 */
+.sec3 {
+  padding: 200px 0;
+}
+.sec_title {
+  text-align: center;
+  font-size: var(--xl-font-size);
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+.sec_title + p {
+  text-align: center;
+  font-size: var(--md-font-size);
+  font-weight: 200;
+  margin-bottom: 100px;
+}
+.icon_content {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+}
+.icon_content > div div {
+  transition: 0.5s;
+}
+.icon_content > div:hover div {
+  color: var(--sub-color);
+  transform: translateY(-10px);
+}
+.text_bottom {
+  margin-top: 20px;
+  border-top: 1px solid #333;
+  padding-top: 10px;
+}
+.text_bottom > h3 {
+  font-weight: 600;
+  font-size: var(--sm-font-size);
+}
+.text_bottom > p {
+  font-weight: 200;
+  font-size: var(--sm-font-size);
+}
