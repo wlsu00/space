@@ -281,3 +281,304 @@ section {
   font-weight: 200;
   font-size: var(--sm-font-size);
 }
+/* 네번째 섹션 */
+.sec4 {
+  /* background-color: var(--sub-color); */
+  background-color: #77f43d;
+  color: #fff;
+  padding: 200px 0;
+  position: relative; /* 가상요소 동그라미때문에 */
+}
+.sec4::before,
+.sec4::after {
+  content: "circle";
+  font-size: 0;
+  display: block;
+  width: 600px;
+  height: 600px;
+  border-radius: 100%;
+}
+.sec4::before {
+  position: absolute;
+  left: -100px;
+  top: 100px;
+  background-color: var(--main-color);
+}
+.sec4::after {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  right: 100px;
+  bottom: 100px;
+  background-color: #fff;
+  opacity: 0.4;
+  z-index: 5;
+}
+.sec4 .con {
+  display: flex;
+}
+.sec4 > .con > .heading_left {
+  width: clamp(480px, 30%, 480px);
+  height: 1350px;
+  position: relative; /*글자따라다닐공간*/
+}
+.heading_left .text_box {
+  position: sticky; /*원이랑 글자 둘다 포지션줘서 이제 글자가 위로 올라옴(글자태그구조가 더 아래)*/
+  top: 200px;
+}
+.heading_left .text_box h2 {
+  font-size: var(--xl-font-size);
+  line-height: var(--xl-line-height);
+  font-weight: 600;
+}
+.heading_left .text_box p {
+  font-size: var(--sm-font-size);
+  margin-bottom: 40px;
+}
+.more {
+  display: flex; /* 글자랑 아이콘 간격벌리려고 */
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+  padding: 8px 16px;
+  border: 1px solid #fff;
+  transition: 0.5s; /* 호버 색상변하기용 */
+  font-weight: 500;
+}
+.more:hover {
+  border: 1px solid var(--default-blk);
+  color: var(--default-blk);
+}
+.more i {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  transition: transform 0.5s; /* 호버 아이콘 돌아가기용 */
+}
+.more:hover i {
+  transform: rotate(360deg);
+}
+.right_con {
+  width: 70%;
+  position: relative; /* 안쪽 이미지 움직여야함 */
+  z-index: 10;
+  display: flex;
+  flex-direction: column; /* 글자 세로방향 */
+  align-items: flex-end; /* 방향 컬럼으로 바껴서 justify 안씀 */
+  gap: 40px;
+}
+.right_con .data_box {
+  width: 60%; /* 70%쓰는 right_con의 60% */
+  height: 300px;
+  position: relative; /* 그림 나타나게 */
+  box-sizing: border-box;
+  padding: 20px;
+  transition-property: width, border-bottom, color; /* 3가지가 변할 초가 다 달라서 */
+  transition-duration: 0.8s, 0.1s, 0.5s; /* width, border-bottom, color */
+  cursor: pointer;
+  border-bottom: 1px solid #fff;
+}
+.right_con .data_box:hover {
+  width: 70%;
+  border-bottom: 3px solid var(--main-color);
+  color: var(--main-color);
+}
+.right_con .data_box > img {
+  position: absolute;
+  width: 300px;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 1s;
+}
+.right_con .data_box:hover > img {
+  transform: translateX(-320px);
+  opacity: 1;
+}
+.right_con .data_box > h4 {
+  font-size: var(--sm-font-size);
+  line-height: var(--md-line-height);
+  font-weight: 600;
+}
+.right_con .data_box > h3 {
+  font-weight: 400;
+  text-transform: capitalize;
+  font-size: var(--xl-font-size);
+  line-height: var(--lg-line-height);
+  margin-bottom: 20px;
+}
+.right_con .data_box p {
+  font-size: var(--md-font-size);
+  font-weight: 200;
+}
+/* 다섯번째 섹션 */
+.sec5 {
+  padding: 200px 0;
+  overflow: hidden; /*높이 안지정하고 알아서 높이만큼 늘어나라*/
+  position: relative;
+}
+.sec5 > .con {
+  position: relative;
+  z-index: 20; /* 흘러가는 글자보다 위로 올라오게 */
+}
+.sec5 > .con > h2 > br {
+  display: none; /* pc에선 줄바꿈안되게하려고 br숨김*/
+}
+.card_wrap {
+  width: 100%;
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap; /* 모바일에선 아래로 내려가게 */
+  position: relative;
+  z-index: 12;
+}
+.card_wrap .card {
+  /* 연산자 양 옆에 공백 1칸 필요 (안그럼 하나의 숫자로 인식) */
+  width: calc(25% - 20px); /* 사이간격 총 40생김 (각20) */
+  height: fit-content;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.5s;
+  overflow: hidden;
+  will-change: width, flex;
+}
+.card_wrap .card:hover {
+  width: calc(28% - 20px); /* 간격은 유지 */
+}
+.card .img_area {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+.card .img_area img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  filter: grayscale(70%);
+  transition: 0.3s;
+}
+.card:hover .img_area {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.card:hover .img_area img {
+  filter: grayscale(0%) drop-shadow(3px 3px 3px rgb(86, 9, 211));
+}
+.card .text_wrap {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+  position: relative;
+}
+.card .text_wrap h3 {
+  font-size: var(--md-font-size);
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+.card .text_wrap p {
+  font: var(--sm-font-size);
+  height: 120px; /* 아예 높이 지정해서 <p>가 2줄나와도 레이아웃 안틀어지게 */
+  margin-bottom: 20px;
+}
+.card .text_wrap .more:hover {
+  color: var(--sub-color);
+  border: 1px solid var(--sub-color);
+}
+/* 롤링텍스트 */
+.rolling {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  font-size: clamp(50px, 6vw, 100px);
+  font-weight: 800;
+  opacity: 0.8;
+  position: absolute;
+  top: 50%;
+  z-index: 11;
+  transform: rotate(10deg);
+}
+.rolling div {
+  display: flex;
+  gap: 30px;
+  will-change: transform;
+  width: max-content; /* 컨텐츠가 가질수있는 최대넓이 */
+  position: absolute;
+}
+.rolling div p {
+  flex-shrink: 0; /* 크기 안줄어들게 */
+}
+/* 라인글자 */
+.rolling div p:nth-child(even) {
+  /* 짝수번째 */
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px var(--main-color);
+}
+.rolling div p:nth-child(odd) {
+  /* 홀수번째 */
+  color: var(--main-color);
+}
+.fill_text {
+  animation: rolling1 12s linear infinite reverse;
+  will-change: transform, animation;
+}
+.fill_text p:last-child {
+  margin-right: 30px;
+}
+.line_text {
+  animation: rolling2 12s linear infinite reverse;
+  will-change: transform, animation;
+}
+@keyframes rolling1 {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes rolling2 {
+  0% {
+    transform: translateX(100%); /* 8개의 <p> 가로 전체사이즈 */
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+/* footer */
+footer {
+  width: 100%;
+  height: 80px;
+  color: #333;
+  border-top: 1px solid #222;
+}
+footer .con {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .con h2 {
+  filter: invert(40%);
+  transition: 0.3s;
+}
+footer .con h2:hover {
+  filter: invert(70%);
+}
+.footer_icon {
+  display: flex;
+  gap: 20px;
+}
+.footer_icon a {
+  color: #444;
+  display: block;
+  padding: 4px;
+  transition: 0.3s;
+}
+.footer_icon a:hover {
+  color: var(--sub-color);
+}
