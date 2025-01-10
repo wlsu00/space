@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* 모바일 */
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  /* 공통영역 */
+  .con {
+    width: 95%;
+  }
+  #gnb {
+    display: none;
+  }
+  .icons a:last-child {
+    display: flex;
+  }
+  .visual_text {
+    position: absolute;
+    width: 100%;
+    padding: 0 40px;
+    z-index: 2;
+  }
+  .visual_text h2 {
+    font-size: clamp(60px, 4vw, 70px);
+  }
+  .visual_text p {
+    font-size: var(--sm-font-size);
+  }
+  .visual_video {
+    width: 100%;
+    position: absolute;
+  }
+  /* 잠깐 숨겨두기 */
+  .sec3,
+  .sec4,
+  .sec5,
+  footer {
+    display: none;
+  }
+}
