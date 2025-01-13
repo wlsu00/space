@@ -27,11 +27,349 @@
     width: 100%;
     position: absolute;
   }
-  /* 잠깐 숨겨두기 */
-  .sec3,
-  .sec4,
-  .sec5,
-  footer {
+  /* 두번째 섹션 */
+  .rocket {
     display: none;
+  }
+  /* 세번째 섹션 */
+  .sec_title {
+    font-size: var(--lg-font-size);
+  }
+  .sec_title + p {
+    font-size: var(--sm-font-size);
+    padding: 0 50px;
+  }
+  .icon_content {
+    flex-direction: column;
+  }
+  .icon_content > div {
+    width: 50%;
+  }
+  .text_bottom > h3 {
+    font-size: var(--md-font-size);
+  }
+  .text_bottom > p {
+    font-size: var(--md-font-size);
+  }
+  /* 네번째 섹션 */
+  .sec4 {
+    overflow: hidden;
+  }
+  .sec4::before,
+  .sec4::after {
+    width: 100vw;
+    height: 100vw;
+  }
+  .sec4::after {
+    right: -10vw;
+  }
+  .sec4 .con {
+    display: block;
+  }
+  .sec4 > .con > .heading_left {
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    margin-bottom: 140px;
+  }
+  .sec4 > .con > .heading_left br {
+    display: none;
+  }
+  .heading_left .text_box p {
+    padding: 0 50px;
+  }
+  .more {
+    margin: 0 auto;
+  }
+  .heading_left .text_box {
+    position: static;
+  }
+  .right_con {
+    width: 100%;
+    display: block;
+  }
+  .right_con .data_box {
+    width: 100%;
+    height: fit-content;
+    margin-top: 40px;
+    transition: 1s;
+    overflow: hidden;
+  }
+  .right_con .data_box:hover {
+    width: 100%;
+  }
+  .right_con .data_box:hover > img {
+    position: static; /* 더이상 좌표값 인식못하게 포지션해제*/
+    width: 200px;
+    height: 0;
+    overflow: hidden;
+    transition: 0.3s;
+    transform: translateX(0) translateY(-10%);
+  }
+  .right_con .data_box:hover > img {
+    transform: translateY(0%);
+    height: 200px;
+    opacity: 1;
+  }
+  /* 다섯번째 섹션 */
+  .sec5 > .con > h2 {
+    font-size: var(--xl-font-size);
+    line-height: var(--lg-line-height);
+    font-weight: 600;
+  }
+  .sec5 > .con > h2 > br {
+    display: block;
+  }
+
+  /* footer */
+  footer {
+    height: fit-content;
+    padding: 40px 0;
+  }
+  footer .con {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+/* 태블릿 - sm */
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+  /* 메인비주얼 */
+  .visual_text {
+    position: absolute;
+    width: 100%;
+    padding: 0 40px;
+    z-index: 2;
+  }
+  .visual_text h2 {
+    font-size: clamp(60px, 4vw, 70px);
+  }
+  .visual_text p {
+    font-size: var(--sm-font-size);
+  }
+  .visual_video {
+    position: absolute;
+    width: 100%;
+  }
+  /* 세번째 섹션 */
+  .sec_title {
+    font-size: var(--xl-font-size);
+  }
+  .sec_title + p {
+    font-size: var(--md-font-size);
+    padding: 0 50px;
+  }
+  /* 네번째 섹션 */
+  .sec4 {
+    overflow: hidden;
+  }
+  .sec4::before,
+  .sec4::after {
+    width: 30vw;
+    height: 30vw;
+  }
+  .sec4::before {
+    right: -10vw;
+  }
+  .sec4 .con {
+    display: block;
+  }
+  .sec4 > .con > .heading_left {
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    margin-bottom: 140px;
+  }
+  .heading_left .text_box p {
+    padding: 0 50px;
+    font-size: var(--md-font-size);
+    font-weight: 300;
+    line-height: var(--md-line-height);
+  }
+  .more {
+    margin: 0 auto;
+  }
+  .heading_left .text_box {
+    position: static;
+  }
+  .right_con {
+    width: 100%;
+    height: fit-content;
+    display: block;
+  }
+  .right_con .data_box {
+    width: 100%;
+    height: fit-content;
+    margin-top: 40px;
+    transition: 1s;
+    overflow: hidden;
+  }
+  .right_con .data_box:hover {
+    width: 100%;
+  }
+  .right_con .data_box > img {
+    position: static;
+    width: 200px;
+    height: 0;
+    transition: 0.3s;
+    will-change: transform;
+    transform: translate(0, -10%);
+  }
+  .right_con .data_box:hover > img {
+    transform: translateY(0);
+    height: 200px;
+    opacity: 1;
+  }
+
+  /* 다섯번째 섹션 */
+  .card .img_area {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center; /*이미지틀안에 이미지 가운데정렬*/
+    justify-content: center;
+  }
+  .card .img_area img {
+    width: 100%;
+    height: 100%;
+  }
+  .card .text_wrap {
+    text-align: center;
+  }
+  .card .text_wrap h3 {
+    height: 60px;
+  }
+  .card .text_wrap p {
+    line-height: var(--xs-line-height);
+  }
+  .card .text_wrap .more {
+    margin: 0 auto;
+    width: clamp(80px, 90%, 130px);
+  }
+  /* 롤링텍스트 */
+  .rolling {
+    font-size: clamp(20vw, 30vw, 100px);
+    transform: rotate(20deg);
+  }
+}
+/* 태블릿 - sec5 레이아웃변경*/
+/* 
+  처음 정한 화면 중단점이면 max가 768px인데,
+  sec5는 그때까지 1개면 너무 남고, 2개하긴 좁으니깐
+  max 640px으로 중단점 하나 추가해주기
+ */
+@media screen and (max-width: 640px) {
+  /* 다섯번째 섹션 */
+  .card_wrap {
+    justify-content: center;
+    gap: 40px;
+  }
+  .card_wrap .card {
+    width: 90%;
+  }
+  .card_wrap .card:hover {
+    width: 90%;
+    border: 1px solid var(--sub-color);
+  }
+  .card .img_area {
+    height: 340px;
+  }
+  .card .img_area img {
+    object-fit: scale-down; /*contain vs fill 중 작은값사용*/
+  }
+  .card:hover .img_area img {
+    transform: scale(1.03);
+  }
+  .card .text_wrap {
+    height: 300px;
+    text-align: center;
+  }
+  .card .text_wrap p {
+    height: 90px;
+    line-height: var(--xs-line-height);
+  }
+}
+@media screen and (min-width: 641px) and (max-width: 1250px) {
+  /* 다섯번째 섹션 */
+  .card_wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card_wrap .card {
+    width: 50%;
+  }
+  .card_wrap .card:hover {
+    width: 50%;
+    border: 1px solid var(--sub-color);
+  }
+}
+/* 태블릿-md,lg */
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* 메인비주얼 */
+  .visual_text {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 5vw; /* 패딩도 유동적으로 움직여라 */
+    text-align: center;
+  }
+  /* 네번째 섹션 */
+  .right_con .data_box {
+    height: 360px;
+  }
+  .right_con .data_box img {
+    width: 250px;
+  }
+  .right_con .data_box:hover img {
+    transform: translateX(-280px);
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .con {
+    width: 90%;
+  }
+  header .con {
+    width: 90%;
+  }
+  #gnb {
+    width: fit-content;
+  }
+  #gnb > ul {
+    width: fit-content;
+    gap: 20px;
+  }
+  #gnb > ul > li {
+    width: 100px; /*넓이 줄이면 이름 긴 2차메뉴는 아래로 내려옴*/
+  }
+  .submenu {
+    line-height: 1.2;
+  }
+  .submenu > li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px; /*그럼 아래로 내려온 메뉴들이 또다른 메뉴같아보이니깐 높이지정해서 2차메뉴끼리의 간격 넓혀주기*/
+    margin-bottom: 10px;
+  }
+  /* 세번째 섹션 */
+  .sec_title + p {
+    font-size: var(--sm-font-size);
+  }
+  /* 네번째 섹션 */
+  .heading_left .text_box {
+    z-index: 100;
+  }
+  .heading_left .text_box p {
+    width: 80%;
+  }
+  .heading_left .text_box p br {
+    display: none;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .con {
+    width: 95%;
+  }
+  header .con {
+    width: 95%;
   }
 }

@@ -179,7 +179,6 @@ section {
   line-height: var(--md-line-height);
   opacity: 0;
 }
-
 @keyframes textup {
   from {
     opacity: 0;
@@ -319,8 +318,8 @@ section {
 }
 .sec4 > .con > .heading_left {
   width: clamp(480px, 30%, 480px);
-  height: 1350px;
-  position: relative; /*글자따라다닐공간*/
+  height: 1350px; /*글자따라다닐공간*/
+  position: relative;
 }
 .heading_left .text_box {
   position: sticky; /*원이랑 글자 둘다 포지션줘서 이제 글자가 위로 올라옴(글자태그구조가 더 아래)*/
@@ -414,7 +413,7 @@ section {
 /* 다섯번째 섹션 */
 .sec5 {
   padding: 200px 0;
-  overflow: hidden; /*높이 안지정하고 알아서 높이만큼 늘어나라*/
+  overflow: hidden; /*높이 지정안하고 알아서 높이만큼 늘어나라*/
   position: relative;
 }
 .sec5 > .con {
@@ -449,6 +448,7 @@ section {
 }
 .card_wrap .card:hover {
   width: calc(28% - 20px); /* 간격은 유지 */
+  border: 1px solid var(--sub-color);
 }
 .card .img_area {
   width: 100%;
